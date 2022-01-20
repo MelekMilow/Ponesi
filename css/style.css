@@ -7,10 +7,17 @@ body{
 
 .naslov{
     text-align: center;
-    margin-bottom: 50px
 }
-.naslov h1{
+.naslov h1 {
     font-size: 3em;
+}
+.navigacija ul li p{
+    color: black;
+}
+
+.navigacija ul li a{
+    font-size: 1.5em;
+    color: black;
 }
 
 .forma{
