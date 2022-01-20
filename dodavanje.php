@@ -62,21 +62,23 @@ if (!isset($_SESSION['current_user']) || $_SESSION['current_user']!='admin') {
 
 <div class="sadrzaj">
 
-    <div class="container">
-        <label for="idRestoranSelect" >Restoran</label>
-        <select class="form-select" id="idRestoranSelect" onchange="popuniFormu()">
-            <option></option>
-            <?php
-            $restorani=Restoran::getAll($conn);
-            while (($restoran=$restorani->fetch_assoc())!=null){?>
-                <option value="<?=$restoran['id']?>"><?=$restoran['naziv']?></option>
-            <?php }?>
-        </select>
-    </div>
+
 
     <form class="formaRestoran" id="formaRestoran" method="post" >
         <h2>Dodaj restoran</h2>
         <input type="hidden" name="id" id="idRestoran" value="">
+        <div class="container">
+            <label for="idRestoranSelect" >Restoran</label>
+            <select class="form-select" id="idRestoranSelect" onchange="popuniFormu()">
+                <option></option>
+                <?php
+                $restorani=Restoran::getAll($conn);
+                while (($restoran=$restorani->fetch_assoc())!=null){?>
+                    <option value="<?=$restoran['id']?>"><?=$restoran['naziv']?></option>
+                <?php }?>
+            </select>
+        </div>
+        <br>
         <input class="form-control" type="text" id="idNazivRestorana" name="naziv" placeholder="Naziv restorana">
         <br>
         <input class="form-control" type="text" id="idAdresaRestorana" name="adresa" placeholder="Adresa restorana">
@@ -96,21 +98,22 @@ if (!isset($_SESSION['current_user']) || $_SESSION['current_user']!='admin') {
     <br>
     <br>
 
-    <div class="container">
-        <label for="idHranaSelect" >Hrana</label>
-        <select class="form-select" id="idHranaSelect" onchange="popuniFormuHrana()">
-            <option></option>
-        </select>
-    </div>
-    <br>
+
     <form class="formaHrana" id="formaHrana" method="post">
         <input type="hidden" name="id" id="idHrana" value="">
         <input type="hidden" name="restoran_id" id="idRestoranHrana" value="">
-        <input class="form-control" type="text" id="idNazivHrana" name="naziv" placeholder="Naziv restorana">
+        <div class="container">
+            <label for="idHranaSelect" >Hrana</label>
+            <select class="form-select" id="idHranaSelect" onchange="popuniFormuHrana()">
+                <option></option>
+            </select>
+        </div>
         <br>
-        <input class="form-control" type="text" id="idOpisHrana" name="opis" placeholder="Adresa restorana">
+        <input class="form-control" type="text" id="idNazivHrana" name="naziv" placeholder="Naziv hrane">
         <br>
-        <input class="form-control" type="text" id="idCenaHrana" name="cena" placeholder="Broj telefona">
+        <textarea class="form-control" type="text" id="idOpisHrana" name="opis" placeholder="Opis hrane"></textarea>
+        <br>
+        <input class="form-control" type="text" id="idCenaHrana" name="cena" placeholder="Cena">
         <br>
         <div class="d-grid gap-2 d-md-block container">
             <button type="submit" id="sacuvajHrana" class="btn btn-success">Sačuvaj</button>
