@@ -9,7 +9,7 @@ if( isset($_POST['id']) &&
     isset($_POST['opis']) &&
     isset($_POST['cena'])){
 
-    $hrana = new Restoran($_POST['id'],$_POST['restoran_id'],$_POST['naziv'],
+    $hrana = new Hrana($_POST['id'],$_POST['restoran_id'],$_POST['naziv'],
                              $_POST['opis'],$_POST['cena']);
 
     $status = $hrana->update($conn);

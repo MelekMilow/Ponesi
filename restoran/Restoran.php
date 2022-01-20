@@ -21,7 +21,7 @@ class Restoran
 
     public function add(mysqli $conn){
         $upit = "INSERT INTO restoran (naziv,adresa,brojTelefona,radnoVreme) 
-                 VALUES ('$this->naziv','$this->adresa','$this->brojTelefona','$this->radnoVreme';";
+                 VALUES ('$this->naziv','$this->adresa','$this->brojTelefona','$this->radnoVreme');";
         return $conn->query($upit);
     }
 

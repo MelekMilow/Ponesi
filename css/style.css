@@ -29,3 +29,12 @@ body{
 .naslovForma{
     color: white;
 }
+
+.sadrzaj{
+    margin-left: auto;
+    margin-right: auto;
+    width: 60vw;
+}
+.sadrzaj h2{
+    text-align: center;
+}

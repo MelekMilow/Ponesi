@@ -20,7 +20,7 @@ class Hrana
 
     public function add(mysqli $conn){
         $upit = "INSERT INTO hrana (restoran_id,naziv,opis,cena) 
-                 VALUES ('$this->restoran_id','$this->naziv','$this->opis','$this->cena';";
+                 VALUES ('$this->restoran_id','$this->naziv','$this->opis','$this->cena');";
         return $conn->query($upit);
     }
 
@@ -41,9 +41,23 @@ class Hrana
         return $conn->query($upit);
     }
 
+    public static function getAllHranaRestoran(mysqli $conn,$id)
+    {
+        $upit = "SELECT * FROM hrana WHERE restoran_id=$id";
+
+        $hrana = array();
+        if($obj = $conn->query($upit)){
+            while($red = $obj->fetch_array(1)){
+                $hrana[]= $red;
+            }
+        }
+
+        return $hrana;
+    }
+
 
     public static function getHrana($id, mysqli $conn){
-        $upit = "SELECT * FROM restoran_id WHERE id=$id";
+        $upit = "SELECT * FROM hrana WHERE id=$id";
 
         $hrana = array();
         if($obj = $conn->query($upit)){
