@@ -66,23 +66,32 @@ if (!isset($_SESSION['current_user'])) {
 <div class="sadrzaj">
 
     <h2><?=$restoran['naziv']?></h2>
-
+    <div class="d-flex justify-content-center">
+        <div class=" w-100 p-3">
+            <input class="form-control" type="text" placeholder="pretraga" id="pretraga">
+        </div>
+        <div class=" w-50 p-3">
+            <input class="btn btn-primary" type="button" id="sortBtn" value="sortiraj">
+        </div>
+    </div>
     <div class="restorani row row-cols-1 row-cols-sm-2 g-3">
 
         <?php
         $jelovnik=Hrana::getAllHranaRestoran($conn,$restoran['id']);
 
         foreach ($jelovnik as $hrana){?>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title"><?=$hrana['naziv']?></h5>
-                        <p class="card-text"><?=$hrana['opis']?></p>
-                        <p class="card-text"><?=$hrana['cena']?></p>
-                        <button type="button" class="btn btn-success" onclick="poruci(<?=$hrana['id']?>)">Poruci</button>
+            <form class="kartice">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><?=$hrana['naziv']?></h5>
+                            <p class="card-text"><?=$hrana['opis']?></p>
+                            <p class="card-text"><?=$hrana['cena']?></p>
+                            <button type="button" class="btn btn-success" onclick="poruci(<?=$hrana['id']?>)">Poruci</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         <?php     }
         ?>
 
@@ -96,5 +105,6 @@ if (!isset($_SESSION['current_user'])) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="js/restoran.js"></script>
+<script src="js/pretragaSortiranje.js"></script>
 </body>
 </html>

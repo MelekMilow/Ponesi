@@ -60,13 +60,20 @@ if (!isset($_SESSION['current_user'])) {
 
 <div class="sadrzaj">
 
-
+    <div class="d-flex justify-content-center">
+        <div class=" w-100 p-3">
+            <input class="form-control" type="text" placeholder="pretraga" id="pretraga">
+        </div>
+        <div class=" w-50 p-3">
+            <input class="btn btn-primary" type="button" id="sortBtn" value="sortiraj">
+        </div>
+    </div>
     <div class="restorani row row-cols-1 row-cols-sm-2 g-3">
 
         <?php
             $restorani=Restoran::getAll($conn);
             while (($restoran=$restorani->fetch_assoc())!=null){?>
-                <form action="restoran.php" method="get" class="col">
+                <form class="kartice" action="restoran.php" method="get" class="col">
                     <div class="card">
                          <div class="card-body">
                             <h5 class="card-title"><?=$restoran['naziv']?></h5>
@@ -89,5 +96,6 @@ if (!isset($_SESSION['current_user'])) {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="js/pretragaSortiranje.js"></script>
 </body>
 </html>
