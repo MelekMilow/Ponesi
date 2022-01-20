@@ -9,13 +9,7 @@ class Restoran
     public $brojTelefona;
     public $radnoVreme;
 
-    /**
-     * @param $id
-     * @param $naziv
-     * @param $adresa
-     * @param $brojTelefona
-     * @param $radnoVreme
-     */
+
     public function __construct($id=null, $naziv=null, $adresa=null, $brojTelefona=null, $radnoVreme=null)
     {
         $this->id = $id;
